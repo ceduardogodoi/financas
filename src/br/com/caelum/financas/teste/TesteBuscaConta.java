@@ -19,6 +19,15 @@ public class TesteBuscaConta {
 
 		em.getTransaction().commit();
 		em.close();
+
+		EntityManager em2 = new JpaUtil().getEntityManager();
+		em2.getTransaction().begin();
+
+		conta.setTitular("Leonardo1");
+		em2.merge(conta);
+
+		em2.getTransaction().commit();
+		em2.close();
 	}
 
 }
