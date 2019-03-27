@@ -1,7 +1,7 @@
 package br.com.caelum.financas.modelo;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -25,10 +26,11 @@ public class Movimentacao {
 	private TipoMovimentacao tipo;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date data;
+	private Calendar data;
 
 	private String descricao;
 
+	@ManyToOne
 	private Conta conta;
 
 	public Integer getId() {
@@ -55,11 +57,11 @@ public class Movimentacao {
 		this.tipo = tipo;
 	}
 
-	public Date getData() {
+	public Calendar getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(Calendar data) {
 		this.data = data;
 	}
 
@@ -69,6 +71,14 @@ public class Movimentacao {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
 	}
 
 }
