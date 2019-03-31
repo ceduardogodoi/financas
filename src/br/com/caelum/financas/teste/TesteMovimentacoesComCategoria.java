@@ -16,14 +16,14 @@ public class TesteMovimentacoesComCategoria {
 
 	public static void main(String[] args) {
 		Categoria categoria1 = new Categoria("Viagem");
-		Categoria categoria2 = new Categoria("Negócios");
+		Categoria categoria2 = new Categoria("NegÃ³cios");
 
 		Conta conta = new Conta();
 		conta.setId(2);
 
 		Movimentacao movimentacao1 = new Movimentacao();
 		movimentacao1.setData(Calendar.getInstance());
-		movimentacao1.setDescricao("Viagem a São Paulo");
+		movimentacao1.setDescricao("Viagem a SÃ£o Paulo");
 		movimentacao1.setTipo(TipoMovimentacao.SAIDA);
 		movimentacao1.setValor(new BigDecimal("100.0"));
 		movimentacao1.setCategorias(Arrays.asList(categoria1, categoria2));
@@ -46,8 +46,8 @@ public class TesteMovimentacoesComCategoria {
 //		em.persist(movimentacao1);
 //		em.persist(movimentacao2);
 
-		Movimentacao movimentacao = em.find(Movimentacao.class, 3);
-		movimentacao.setValor(new BigDecimal("300.0"));
+//		Movimentacao movimentacao = em.find(Movimentacao.class, 3);
+//		movimentacao.setDescricao("Viagem a SÃ£o Paulo");
 
 		em.getTransaction().commit();
 		em.close();
